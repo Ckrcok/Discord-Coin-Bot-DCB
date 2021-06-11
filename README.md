@@ -6,7 +6,7 @@ Creating a Discord bot when you give a reaction of a :coin: :moneybag: or :Coin:
 
 # To Do List -
 
-- [x] ~~ learn Discord.js~~
+- [x] ~~learn Discord.js~~
 - [x] setting up the bot
 - [x] Trying to add it to a bank
 - [x] Connect it to DB
