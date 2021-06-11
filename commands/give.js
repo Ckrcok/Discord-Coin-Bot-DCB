@@ -15,6 +15,10 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(
     `I just gave ${member} this amount of coin: \`${args[1]}\``
   );
+
+  console.log(
+    `${member.user.tag} got ${args[1]} from ${message.author.username}`
+  );
 };
 
 module.exports.config = {
