@@ -1,4 +1,4 @@
-![DCB Logo](DCB_logo.png)
+![DCB Logo](DCB_Logo.png)
 
 # DCB
 
@@ -6,7 +6,7 @@ Creating a Discord bot when you give a reaction of a :coin: :moneybag: or :Coin:
 
 # To Do List -
 
-- [x] learn Discord.js
+- [x] ~~ learn Discord.js~~
 - [ ] setting up the bot
 - [ ] Trying to add it to a bank
 - [ ] Connect it to DB
