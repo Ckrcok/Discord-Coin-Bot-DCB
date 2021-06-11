@@ -1,4 +1,4 @@
-![DCB Logo](/DCB_logo.png)
+![DCB Logo](DCB_logo.png)
 
 # DCB
 
