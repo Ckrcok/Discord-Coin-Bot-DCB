@@ -4,26 +4,19 @@ const fs = require("fs");
 
 const client = new Discord.Client();
 
-const eventFiles = fs
-  .readdirSync("./events")
-  .filter(file => file.endsWith(".js"));
-
-for (const file of eventFiles) {
-  const event = require(`./events/${file}`);
-
-  if (event.once) {
-    client.once(event.name, (...args) => event.execute(...args, client));
-  } else {
-    client.on(event.name, (...args) => event.execute(...args, client));
-  }
-}
-
-client.on("messageReactionAdd", (reaction, user) => {
-  console.log(
-    `something happened well this happened -> ${reaction} to ${user}  `
-  );
+client.once("ready", () => {
+  console.log("Ready!");
 });
 
-console.log(client);
+client.on("message", message => {
+  if (message.content === "!react") {
+    console.log(`reacting`);
+    message.react("👛");
+  } else if (message.content === "!coin") {
+    console.log(`reacting with a coin`);
+    message.react("852684562562547722");
+    message.react(":coin:");
+  }
+});
 
 client.login(token);
