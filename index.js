@@ -22,5 +22,9 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Map();
 
+if (bot.MessageReaction === "😀") {
+  console.log("reaction added");
+}
+
 loadCommands(bot);
 bot.login(token);
