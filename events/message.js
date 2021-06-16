@@ -34,8 +34,4 @@ module.exports = async (bot, message) => {
   if (commandfile) {
     commandfile.run(bot, message, args);
   }
-
-  if (Discord.MessageReaction === "😀") {
-    console.log("reaction added");
-  }
 };

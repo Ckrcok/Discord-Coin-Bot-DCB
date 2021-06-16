@@ -22,9 +22,10 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Map();
 
-if (bot.MessageReaction === "😀") {
-  console.log("reaction added");
-}
+bot.on("messageReactionAdd", (message, user) => {
+  console.log(message);
+  console.log(`This ${user.username} added ${message._emoji.name} to  `);
+});
 
 loadCommands(bot);
 bot.login(token);
