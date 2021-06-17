@@ -22,9 +22,11 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Map();
 
-bot.on("messageReactionAdd", (message, user) => {
-  console.log(message);
-  console.log(`This ${user.username} added ${message._emoji.name} to  `);
+bot.on("messageReactionAdd", (reaction, user) => {
+  let author = reaction.fetch().then(fullMessage => {
+    console.log(fullMessage);
+  });
+  console.log(`This ${user.username} added ${reaction.emoji} to  `);
 });
 
 loadCommands(bot);
