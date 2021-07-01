@@ -22,11 +22,27 @@ bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 bot.snipes = new Map();
 
-bot.on("messageReactionAdd", (reaction, user) => {
-  let author = reaction.fetch().then(fullMessage => {
-    console.log(fullMessage);
-  });
-  console.log(`This ${user.username} added ${reaction.emoji} to  `);
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+let author = null;
+console.log("First author log -->", author);
+bot.on("messageReactionAdd", async (reaction, user) => {
+  if (reaction.partial) {
+    // If the message this reaction belongs to was removed, the fetching might result in an API error which should be handled
+    try {
+      await reaction.fetch();
+    } catch (error) {
+      console.error("Something went wrong when fetching the message: ", error);
+      // Return as `reaction.message.author` may be undefined/null
+      return;
+    }
+  }
+
+  console.log(
+    `${reaction.message.author.username}'s message "${reaction.message.content}" gained a reaction!`
+  );
 });
 
 loadCommands(bot);
